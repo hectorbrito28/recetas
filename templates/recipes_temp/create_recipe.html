@@ -1,0 +1,251 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+
+
+{% block head %}
+
+<title>Create a recipe</title>
+
+
+
+
+<link rel="stylesheet" href="{% static 'css/createform.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+<div class="Top_title">
+    <div class="back_a">
+        <a  class="go_back" href="{% url 'index' %}"><i class="fa-solid fa-arrow-left"></i> Go back</a>
+    </div>
+    {% if request.resolver_match.kwargs %}
+    <h1  class="Create_Title" >Update recipe</h1>
+    <h1  class="Create_Title" ></h1>
+    
+
+    {% else %}
+
+    <h1 class="Create_Title">Create a recipe</h1>
+    
+
+    {% endif %}
+
+    
+    
+
+    
+    
+
+    
+
+    <h1 class="Create_IngredientsTitle">Ingredients</h1>
+    
+</div>
+
+<div class="Create_background">
+    <form method="POST" class="recipe_form">
+            {% csrf_token %}
+        
+        <div class="left_form">
+
+            
+                {% for field  in form.visible_fields %}
+                    {{field}}
+                {% endfor %}
+                
+
+        </div>
+        
+
+        <div class="right_form">
+
+            {% with named_formsets.ingredients as formset %}
+
+                <script type="text/html" id="ingredients-template">
+                    <tr id="ingredients-__prefix__" class= hide_all> 
+                        {% for fields in formset.empty_form.hidden_fields %}
+                            {{ fields }}
+                        {% endfor %}
+                    
+                        {% for fields in formset.empty_form.visible_fields %}
+                            <td>{{fields}}</td>
+                        {% endfor %}
+                    </tr>
+                </script>
+
+            {% endwith %}
+
+            <table class="table_ingredients" cellpadding="10">
+                <thead>
+                    
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Measure</th>
+                </thead>
+                {% with named_formsets.ingredients as formset %}
+                        {{formset.management_form}}
+                <tbody  id="item-ingredients">
+
+                    
+
+                        
+            
+                        {% for forms in formset %}
+                            
+                        
+                        <tr>
+    
+                            {% for f in forms %}
+                                <td>
+                                    {{f}}
+                                </td>
+                                
+                                
+                            {% endfor %}
+
+                            {% if request.resolver_match.kwargs %}
+                                {% if  forms.instance.pk  %}
+                            
+                                    <td class="td_button"><a href="{% url 'delete_ing' forms.instance.pk %}" class="but">Delete</a></td>
+                                {% endif %}
+                            {% endif %}
+                            
+                            
+                            
+                                
+                        </tr>
+                        {% endfor %}
+                        
+                       
+
+    
+                    {% endwith %}
+
+                    
+
+                   
+
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <td><button class="add_form add-ingredients" type="button">Add form</button></td>
+
+                        <td><button class="del-ingredients" type="button">Delete form</button></td>
+
+                       
+                    </tr>
+                    
+                        
+                    
+                </tfoot>
+
+            </table>
+            <span class="span_text">{{warning}}</span>
+
+            
+        </div>
+            {% if request.resolver_match.kwargs %}
+            <button type="submit" class="Create_button">Update recipe</button>
+
+            {% else %}
+
+            <button type="submit" class="Create_button">Create recipe</button>
+
+            {% endif %}
+
+        
+
+    </form>
+        
+</div>
+
+<input value="{{total_formsets}}" hidden id="total_formsets_id" >
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+{% if request.resolver_match.kwargs %}
+
+<script>
+    $(document).ready(function() {
+        // when user clicks add more btn of images
+      $('.del-ingredients').click(function(ev) {
+          ev.preventDefault();
+          var count = $('#item-ingredients').children().length;
+          var total_formsets = $('#total_formsets_id').val();
+          var tmplMarkup = $('#ingredients-template').html();
+          var compiledTmpl = tmplMarkup.replace(/__prefix__/g, count);
+
+          if ( count > total_formsets){
+            $('#item-ingredients').children(':last').remove()
+
+          }
+
+  
+  
+          // update form count
+          $('#id_ingredients-TOTAL_FORMS').attr('value', count-1);
+      });
+  });
+
+</script>
+
+
+{% else %}
+
+
+<script>
+    $(document).ready(function() {
+        // when user clicks add more btn of images
+      $('.del-ingredients').click(function(ev) {
+          ev.preventDefault();
+          var count = $('#item-ingredients').children().length;
+          var total_formsets = $('#total_formsets_id').val();
+          var tmplMarkup = $('#ingredients-template').html();
+          var compiledTmpl = tmplMarkup.replace(/__prefix__/g, count);
+
+            $('#item-ingredients').children(':last').remove()
+
+  
+  
+          // update form count
+          $('#id_ingredients-TOTAL_FORMS').attr('value', count-1);
+      });
+  });
+
+</script>
+
+
+
+
+{% endif %}
+
+
+<script>
+    $(document).ready(function() {
+        // when user clicks add more btn of images
+      $('.add-ingredients').click(function(ev) {
+          ev.preventDefault();
+          var count = $('#item-ingredients').children().length;
+          var tmplMarkup = $('#ingredients-template').html();
+          var compiledTmpl = tmplMarkup.replace(/__prefix__/g, count);
+          $('#item-ingredients').append(compiledTmpl);
+          
+  
+  
+          // update form count
+          $('#id_ingredients-TOTAL_FORMS').attr('value', count+1);
+      });
+  });
+
+</script>
+
+{% endblock %}

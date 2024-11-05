@@ -1,0 +1,151 @@
+{% extends 'layouts/base.html' %}
+
+{% load static %}
+
+
+{% block head %}
+
+<title>TusRecetasCaseras.com</title>
+<link rel="stylesheet" href="{% static 'css/index.css' %}" rel="stylesheet">
+<link rel="icon" href="{% static 'web/icon.png' %}">
+
+{% endblock %}
+
+
+
+{% block content %}
+
+
+
+<section class="portrait">
+    <nav class="portrait__nav">
+        <ul  class = "list">
+            <a href="{% url 'CreateRecipe' %}" class="list__item">Create a recipe</a>
+
+
+            <div>
+                <form action="">
+                    <select name="categories" id="id_categories">
+                        <option class="class_option" value="0" >All</option>
+                        <option class="class_option" value="<4" >1-4 ingredients</option>
+                        <option class="class_option" value="<8" >4-8 ingredients</option>
+                        <option class="class_option" value=">8" >More than 8 ingredients</option>
+                    </select>
+                    <button class="btn_categories" type="submit">Search</button>
+                </form>
+
+            </div>
+
+
+            <a href="" class="list__item">About</a>
+            
+
+            <div class="dropdown">
+                <p href="" class="dropbtn"><i class="fa-regular fa-user" style="color: #000000;" id="icon_user"></i></p>
+                <div class="dropdown-content">
+                    {% if request.user.is_authenticated %}
+                        <a href="{% url 'my_profile' request.user.pk %}">My profile</a>
+                        <a href="{% url 'recipes_list' user.pk %}">My recipes</a>
+                        <form action="{% url 'logout' %}" method="POST">
+                            {% csrf_token %}
+                            <button class="logout_btn">Log out</button>
+                        </form>
+                        
+                        
+                        
+
+                    {% else %}
+
+                        <a href="{% url 'Signup' %}">Register</a>
+                        <a href="{% url 'login' %}">Login</a>
+
+                    {% endif %}
+                    
+                </div>
+
+            </div>
+            
+        </ul>
+    </nav>
+
+    <h1 class="portrait__h1">TusRecetasCaseras.com</h1>
+
+
+    <form action="{% url 'index' %}">
+        <div class="formv__wrapper">
+            <input type="text"  class="formv__search" name="search_text" id="" placeholder="Cook a dish">
+            <i class="fa-solid fa-magnifying-glass" id="icon_search"></i>
+        </div>
+            
+        
+    </form>
+
+</section>
+
+
+<section class="menu">
+
+    <div class="menu__wrapper">
+        
+        {% if recipes %}
+            <h2  class="menu__h1">Most Viewed</h2>
+        {% else %}
+            <h2  class="menu__h1"> <b style="color: yellow;">Not</b>  <b style="color: blue;">found</b> <b style="color: red;">results</b></h2>
+        {% endif%}
+    </div>
+    
+
+    <div class="recipes">
+        <div class="recipes__wrapper">
+           
+
+
+           
+
+            {% for r in recipes %}
+
+                <section class="recipes__card">
+                    <div class="card_wrapper">
+                        <img class="card__img" src="{% static 'web/arroz.jpg' %}" alt="">
+                    </div>
+                        
+                    <div style="width: 90%;">   
+                        <p class="card__h4">{{r.recipe_name}}</p>
+
+                    </div>
+                    
+                    <div style="width: 90%; ">
+                        <p class="Category_title"><b>Ingredients:  {{r.ing_category}}</b></p>
+                    
+                    </div>
+
+                    
+                    {% if request.user.is_authenticated and r.user == request.user %}
+                        <a class="btn__card" href="{% url 'detail_recipes' r.pk %}">See my recipe</a>
+
+                    {% else %}
+                        
+                        <a href="{% url 'detail_recipes' r.pk %}" class="btn__card">See recipe</a>
+                        
+
+                    {% endif %}
+                    
+                        
+                    
+                </section>
+            
+            {% endfor %}
+            
+        </div>
+        
+    </div>
+
+   
+
+   
+
+</section>
+
+
+
+{% endblock %}

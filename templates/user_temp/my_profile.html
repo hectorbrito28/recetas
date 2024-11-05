@@ -1,0 +1,44 @@
+{% extends 'layouts/base_user.html' %}
+{% load static %}
+
+{% block head %}
+<title>Hello {{request.user.username}}!</title>
+<link rel="stylesheet" href="{% static 'css/my_profile.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="back_a">
+    <a  class="go_back" href="{% url 'index' %}"><i class="fa-solid fa-arrow-left"></i> Go back</a>
+</div>
+
+
+<div class="wrapper">
+    <section class="settings_account">
+        <h1>{{request.user.username}} profile <i class="fa-solid fa-gear"></i></h1>
+        <ul>
+            <li><a href="{% url 'Update_account' user.pk %}" class="a_info"><strong>Update email</strong></a></li>
+            <li><a href="{% url 'Confirmation' %}" class="a_info"><strong>Delete account</strong></a></li>
+        </ul>
+    </section>
+    
+    <section class="personal_info">
+        <h1><i class="fa-solid fa-address-book"></i> Information</h1>
+        <p><i class="fa-solid fa-circle-user"></i> {{user.username}}</p>
+
+        {% if user.email %}
+        <p><i class="fa-solid fa-envelope"></i> {{user.email}}</p>
+
+        {% else %}
+        <p><i class="fa-solid fa-envelope"></i> You don't have email</p>
+        {% endif %}
+
+        <p><strong>Created:</strong> {{user.date_joined}}</p>
+    </section>
+
+</div>
+
+
+
+{% endblock %}

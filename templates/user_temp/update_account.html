@@ -1,0 +1,23 @@
+{% extends 'layouts/base_user.html' %}
+{% load static %}
+
+{% block head %}
+<title>Update email</title>
+<link rel="stylesheet" href="{% static 'css/update_account.css' %}">
+{% endblock %}
+
+{% block content %}
+
+
+<div class="back_a">
+    <a  class="go_back" href="{% url 'my_profile' user.pk %}"><i class="fa-solid fa-arrow-left"></i> Volver</a>
+</div>
+
+<section>
+    <form method="POST" >
+        {% csrf_token %}
+        {{form}}
+        <button type="submit">Update</button>
+    </form>
+</section>
+{% endblock %}

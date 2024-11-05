@@ -1,0 +1,169 @@
+body{
+    margin: 0;
+}
+
+.nav_top{
+    width: 99.8%;
+    height: 14vh;
+    background-color: rgb(253, 235,208,80%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid;
+}
+
+.title{
+    margin: 0;
+    font-size: 48px;
+    filter: drop-shadow(1px 2px 1.7px rgba(0, 0, 0, 0.608));
+}
+
+
+.content{
+    display: flex;
+    justify-content: space-around;
+    margin: 1%;
+}
+
+.img1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.img2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.img3{
+    transform: rotate(-23deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.img4{
+    transform: rotate(5deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.img5{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.img6{
+    transform: rotate(1deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+img{
+    border: solid;
+    border-radius: 20px;
+    
+}
+
+.section_collage{
+    background-color: rgb(212, 239, 223,80%);
+    filter: drop-shadow(1px 2px 1.7px rgba(0, 0, 0, 0.281));
+    border: solid;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;;
+    align-items: center;
+    width: 50vw;
+    height: 80vh;
+    gap: 2%;
+}
+
+
+.section_form{
+    background-color: rgb(253, 235, 208,30%);
+    border: 2px solid;
+    border-radius: 10px;
+    width: 36vw;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title_form{
+    font-size: 35px;
+    filter: drop-shadow(1px 2px 1.7px rgba(0, 0, 0, 0.397));
+}
+
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.p_login{
+    font-weight: 900;
+}
+
+
+/*inputs*/
+
+input{
+    width: 17vw;
+    border: 2px solid;
+    font-family: "Inconsolata";
+    font-size: 1.5vw;
+    padding: 5px;
+    padding-right: 10%;
+    border-radius: 10px;
+    filter: drop-shadow(1px 2px 1.7px rgba(0, 0, 0, 0.608));
+    outline: none;
+
+    
+}
+
+
+/*button*/
+
+.form_btn{
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    background-color: blue;
+}
+
+.form_btn:active{
+    background-color: rgb(14, 14, 97);
+}
+
+.form_btn_show{
+    padding: 5px;
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(0, 0, 0);
+}
+
+
+.form_btn_show:active{
+    padding: 5px;
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(117, 117, 117);
+}

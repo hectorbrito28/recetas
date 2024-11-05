@@ -1,0 +1,233 @@
+.Create_Title{
+    font-size: 2rem;
+    font-weight:500;
+}
+
+
+.Create_IngredientsTitle{
+    font-size: 2rem;
+    font-weight:500;
+}
+
+
+.Top_title{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    margin-left: 3%;
+    column-gap: 7vw;
+    height: 15vh;
+}
+
+.Create_background{
+    background-image: url("createform_img/background.jpg");
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh ;
+    width: 98.4vw;
+    height: 81.2vh;
+    border-image:url("createform_img/background.jpg");
+    border: solid;
+}
+
+
+
+.recipe_form{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+
+.right_form{
+    background-color: rgb(255, 255, 255,0.87);
+    border: solid;
+    margin-right: 10%;
+    width: 45%;
+    height: 65%;
+    overflow: scroll;
+
+}
+
+
+
+tr > td > input[type="text"]{
+    border-color: #0057FF;
+    padding: 3%;
+    padding-right: 10%;
+    border-radius: 14px;
+
+}
+
+
+
+tr > td > input[type="number"]{
+    border-color: #0057FF;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    border-radius: 14px;
+    width: 40%;
+    position: relative;
+    right: 55%;
+    left: 45%;
+}   
+
+
+tr > td > select {
+    border-color: #0057FF;
+    padding: 3%;
+    border-radius: 8px;
+    
+}
+
+.but{
+    padding: 10px;
+    background-color: red;
+    color: white;
+    border: solid;
+    border-color: black;
+    border-radius: 10px;
+    filter: drop-shadow(1px 2px 1.7px rgba(0, 0, 0, 0.608));
+    text-decoration: none;
+}
+
+.but:active{
+    background-color: rgb(125, 24, 24);
+    text-decoration: none;
+}
+
+.add_form{
+    background-color: black;
+    padding: 4%;
+    color: white;
+    border-radius: 10px;
+    padding-right: 40%;
+    filter: drop-shadow(1px 2px 1.7px rgba(0, 0, 0, 0.608));
+}
+
+
+.left_form{
+    background-color: rgb(255, 255, 255,0.87);
+    height: 70%;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 7%;
+    justify-content: space-around;
+    align-items: start;
+    border: solid;
+    
+}
+
+
+#id_recipe_name{
+    width: 70%;
+    margin-left: 5%;
+    padding: 2%;
+    border-radius: 10px;
+    border-color: #0057FF;
+}
+
+#id_description{
+    width: 70%;
+    margin-left: 5%;
+    padding: 2%;
+    border-radius: 10px;
+    border-color: #0057FF;
+    
+    
+}
+
+
+#id_reference{
+    width: 70%;
+    margin-left: 5%;
+    padding: 2%;
+    border-radius: 10px;
+    border-color: #0057FF;
+}
+
+
+.Create_button{
+    position: absolute;
+    left: 80%;
+    bottom: 8%;
+    padding: 0.6%;
+    padding-left: 1%;
+    padding-right: 2%;
+    background-color: yellow;
+    font-size: 90%;
+    filter: drop-shadow(1px 2px 1.7px rgba(0, 0, 0, 0.608));
+    border-radius: 10px;
+}
+
+.Create_button:focus{
+    background-color: rgb(115, 115, 42);
+    
+}
+
+
+.del-ingredients{
+    background-color: red;
+    padding-left: 1%;
+    padding-right: 2%;
+    color: white;
+    border: solid;
+    border-color: black;
+    border-radius: 10px;
+    font-size: 80%;
+    padding: 4%;
+    filter: drop-shadow(1px 2px 1.7px rgba(0, 0, 0, 0.608));
+}
+
+.del-ingredients:active{
+    background-color: rgb(151, 18, 18);
+
+}
+
+.span_text{
+    font-size: 1.5vw;
+    background-color: red;
+    border-radius: 5px;
+    margin-left: 1%;
+    font-weight: bold;
+}
+
+
+#id_description{
+    resize: none;
+}
+
+
+.go_back{
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+    text-decoration: none;
+}
+
+.back_a{
+    margin-top: 1%;
+}
+
+
+/*font family*/
+input{
+    font-family: 'Imprima';
+}
+
+button{
+    font-family: 'Imprima';
+}
+
+textarea{
+    font-family: 'Imprima';
+}
+
+
+select{
+    font-family: 'Imprima';
+}

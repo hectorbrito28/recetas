@@ -1,0 +1,348 @@
+/* Colocar responsive en letras de las cards, en el navbar, cambiar la imagen portrait puede ser  */
+
+
+
+/* Portrait: Contains navbar an search input*/
+.portrait{ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18vh;
+    background-image: url("index_img/Background_index.jpg");
+    background-size:  100vw 100vh;
+    border-image:url("index_img/Background_index.jpg");
+    border: solid;
+    width: 98vw;
+    height: 85vh;
+
+}
+
+
+
+/*Navbar*/
+.portrait__nav{
+    display: flex;
+    margin-top: 1.3%;
+    justify-content: center;
+    background-color: #240101;
+    width: 70vw;
+    border-radius: 10px;
+    
+    
+}
+
+
+/*Navbar: ul*/
+.list{
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    width: 100vw;
+    
+    
+}
+
+
+
+/*Navbar li */
+.list__item{
+    color: white;
+    list-style: none;
+    font-family:'Imprima' ;
+    text-decoration:none
+}
+
+
+.list__item:hover{
+    color: #b3a273;
+}
+
+/*Navbar icon*/
+#icon_user{
+    font-size: 1.3rem;
+}
+
+#icon_user:hover{
+    filter: invert(82%) sepia(5%) saturate(2865%) hue-rotate(338deg) brightness(117%) contrast(93%);
+   
+}
+
+
+
+/*Title: h1*/
+.portrait__h1{
+    align-self: center;
+    justify-self: center;
+    font-size:3.4vw;
+    filter: drop-shadow(1px 2px 1.7px rgba(0, 0, 0, 0.608));
+
+}
+
+
+
+
+/*div search*/
+.formv__wrapper{
+    position: relative;
+
+}
+
+
+/*form div icon search*/
+#icon_search{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-40%);
+}
+
+
+/*form search*/
+.formv__search{
+    width: 45vw;
+    height: 4.9vh;
+    border: solid;
+    border-radius: 10px;
+    filter: drop-shadow( 2px 2.4px 1.7px rgba(0, 0, 0, 0.608) );
+    outline: none;
+    font-size: 20px;
+    font-family: 'Imprima';
+    padding-left: 37px;
+
+}
+
+
+/*form search*/
+ .formv__search:focus{
+    filter: drop-shadow( 2px 2.4px 2.5px rgb(0, 0, 0) );
+ }
+
+
+
+/*form input*/ 
+ .formv__search::placeholder{
+    content: "Cook a dish";
+ }
+
+
+
+/*Section 2*/
+
+
+.menu{
+    width: 98vw;
+    height: 85vh;
+    display: flex;
+}
+
+
+.menu__wrapper{
+    position: relative;
+}
+
+.menu__h1{
+    position: absolute;
+    left: 4rem;
+    top: 1rem;
+}
+
+
+/* Recipes grid*/
+.recipes{
+    display: flex;
+    width: 98vw;
+    height: 50vh;
+    align-self: center;
+
+}
+
+
+/*Card*/
+.recipes__card{
+    border: solid;
+    height: 48vh;
+    width: 16vw;
+    margin-top: 4%;
+    margin-left: 25%;
+    overflow: scroll;
+    overflow-x: hidden;
+    display: flex;
+    justify-content:start;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.recipes__wrapper{
+    display: grid;
+    width: 98vw;
+    
+    grid-template-columns : 1fr 1fr 1fr;
+    align-items: center;
+    
+}
+
+.card__h4{
+    margin-left: 4%;
+    word-wrap: break-word;
+    
+}
+
+
+.Category_title{
+    margin-left: 4%;
+    color: rgb(85, 85, 243);
+}
+
+.content_cat{
+    margin-left: 4%;
+}
+
+
+.form__card{
+    display: flex;
+    justify-content: center;
+  
+}
+
+.btn__card{
+    width: 10vw;
+    color: white;
+    background-color: black;
+    padding:3%;
+    border-radius: 10px;
+    border: 2px solid;
+    font-family: 'Imprima';
+    text-decoration: none;
+    
+}
+
+.btn__card:hover{
+    background-color: white;
+    color: black;
+    border-color: black;
+
+}
+
+.btn__card:active{
+    background-color: rgb(93, 93, 93);
+}
+
+
+
+.card__li{
+    font-size: 1.2vw;
+}
+
+.card__img{
+    width: 16vw;
+    height: 20vh;
+    border-bottom: solid;
+}
+
+
+/*Dropdow categories*/
+
+
+.dropbtn {
+    background-color: #ece2c6;
+    color: black;
+    padding: 1vw;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 10vw;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 10px;
+  }
+
+.dropdown-content a {
+    color: black;
+    padding: 1vw 1vw;
+    text-decoration: none;
+    display: block;
+  }
+
+
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+
+.dropdown:hover .dropbtn {
+    background-color: #b3a273;
+  }
+
+
+
+/*logout button*/
+
+.logout_btn:hover{
+    background-color: #f1f1f1
+}
+
+.logout_btn{
+    border: none;
+    padding: 1vw 1vw;
+    background-color: white;
+    min-width: 10vw;
+}
+
+
+#id_categories{
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 10px;
+    -moz-appearance: none;
+    text-indent: 0.01px;
+    text-overflow: '';
+    color:black;
+    background: white;
+    -webkit-appearance:none;
+    -ms-appearance:none;
+    -o-appearance:none;
+    appearance:none;
+    outline: none;
+    background-color:  #ece2c6;
+
+}
+
+.btn_categories{
+    background-color: #ffffff7e;
+
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.btn_categories:active{
+    background-color: rgb(255, 255, 255);
+}
+
+.btn_categories:hover{
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+
+.class_option{
+    background-color: white;
+}

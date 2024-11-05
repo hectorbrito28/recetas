@@ -1,0 +1,80 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block head %}
+<title>Recipes list</title>
+<link rel="stylesheet" href="{% static 'css/list1.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="back_a">
+    <a  class="go_back" href="{% url 'index' %}"><i class="fa-solid fa-arrow-left"></i> Go back</a>
+</div>
+
+
+
+
+<div class="box">
+
+    
+    
+
+    <h1 class="title">My recipes🍳</h1>
+
+
+    <nav>
+        <ul>
+            <form action="{% url 'recipes_list' user.pk %}">
+                <div class="dropdown">
+                    <label class="dropbtn">Categories</label>
+                        <select name="category" class="dropdown-content">
+                            <option class="links" value="0" >All</option>
+                            <option class="links" value="<4" >1-4 ingredients</option>
+                            <option class="links" value="<8" >4-8 ingredients</option>
+                            <option class="links" value=">8" >More than 8 ingredients</option>
+                        </select>
+                    
+                        
+                </div>
+                <button class="filter_btn">Filter</button>
+            </form>
+
+        </ul>
+    <nav>
+   
+    
+
+    <section class="section_list">
+       
+
+        <div class="list">
+
+            {% for recipe in recipes %}
+            <div class="container">
+                <img  class="recipe_img" src="{% static 'web/arroz.jpg' %}" alt="">
+                <div class="text">
+                    <div style="width: 50%; margin: 2%;">
+
+                        <p style="word-wrap: break-word;"><a class="recipe_link" href="{% url 'UpdateRecipe' recipe.pk %}"><strong>{{forloop.counter}}  {{recipe.recipe_name}}  {{recipe.ing_category}}</strong></a></p>
+                    </div>
+                    
+                </div>
+
+                <a href="{% url 'delete_rcp' recipe.pk %}" class="delete_recipe">Delete recipe</a>
+            </div>
+            {% endfor %}
+           
+            </div>  
+
+        </div>
+
+        
+    </section>
+
+    
+    
+</div>
+
+
+
+{% endblock %}

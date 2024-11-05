@@ -1,0 +1,104 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block head %}
+<title>{{recipe.recipe_name}}</title>
+<link rel="stylesheet" href="{% static 'css/detail_re.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="back_a">
+    <a  class="go_back" href="{% url 'index' %}"><i class="fa-solid fa-arrow-left"></i> Go back</a>
+</div>
+
+<div class="wrapper">
+   <section class="recipe_detail">
+
+        <div style="width: 80%; height: 20%; ">
+            <p style="word-wrap: break-word; margin: 5%; text-align: center;"><strong>{{recipe.recipe_name}}</strong></p>
+        </div>
+
+        <h3><a href="{% url 'download' recipe.pk %}"> <i class="fa-solid fa-book"></i> Recipe information </a></h3>
+
+      
+
+        <div class="header">
+
+            <div>
+                <a href="">Reference</a>
+            </div>
+
+            
+        </div>
+
+        <div class="content">
+                <p style=" word-wrap: break-word; margin: 5%;">{{recipe.description}}</p>
+
+        </div>
+        
+        
+    </section>
+
+
+
+    <section class="recipe_ingredients">
+      <table cellspacing="10" style="border: 1px solid; background-color: azure;" cellpadding="3" >
+        <tr style="text-align: center; ">
+            <th>Nro</th>
+            <th>Name</th>
+            <th>Quantity</th>
+        </tr>
+
+        <tbody>
+
+            {% for i in ingredients %}
+            <tr style="text-align: center; background-color: beige;">
+                <td>{{forloop.counter}}</td>
+                <td>{{i.ingredient_name}}</td>
+                {% if i.measure_quantity == "kg" %}
+
+                    <td>{{i.quantity}}  kilograms</td>
+
+                {% elif i.measure_quantity == "g" %}
+
+                    <td>{{i.quantity}}  grams</td>
+
+                {% elif i.measure_quantity == "mg" %}
+
+                    <td>{{i.quantity}}  miligram</td>
+
+                {% elif i.measure_quantity == "l" %}
+
+                    <td>{{i.quantity}}  liter</td>
+
+                {% elif i.measure_quantity == "dl" %}
+
+                    <td>{{i.quantity}}  deciliter</td>
+                
+                {% else %}
+
+                    <td>{{i.quantity}} milliliter</td>
+
+
+                {% endif %}
+            </tr>
+            <tr style="text-align: center;">
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            {% endfor %}
+          
+        </tbody>
+
+      </table>
+      
+    </section>
+
+</div>
+
+
+{% endblock %}

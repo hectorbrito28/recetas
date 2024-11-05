@@ -1,0 +1,49 @@
+{% extends 'layouts/base_user.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block head %}
+<title>Sign in to TusRecetasCaseras.com</title>
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+    <section class="section_form">
+
+        <div class="h1_title">
+            <h1 >Sign in here! <i class="fa-solid fa-key"></i></h1>
+        </div>
+        <form method="POST">
+            {% csrf_token %}
+            {% render_field form.username class="form-control" placeholder=form.username.label %}
+            {% render_field form.password class="form-control" placeholder=form.password.label %}
+
+            <button type="button" onclick="handlingpasswordinput()" class="form_btn_show">Show password</button>
+
+            <button class="form_btn" >Login in</button>
+
+            <p class="p_login">You don't have a account? <a href="{% url 'Signup' %}">Sign up here!</a></p>
+            
+        </form>
+    </section>
+</div>
+
+
+<script>
+    const id_password1 = document.getElementById("id_password");
+
+    function handlingpasswordinput(){
+    if (id_password.type === "password"){
+        id_password.type = "text"
+        
+    }
+    else{
+        id_password.type = "password"
+    }
+    }
+   
+
+</script>
+
+{% endblock %}

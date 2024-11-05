@@ -1,0 +1,78 @@
+{% extends 'layouts/base_user.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/signup_style.css' %}">
+<title>Sign up to TusRecetasCaseras.com</title>
+{% endblock %}
+
+
+
+{% block content %}
+<div class="nav_top">
+    <nav>
+        <h1 class="title">¡Share recipes with  everybody!</h1>
+    </nav>
+</div>
+
+<div class="content">
+    <section class="section_collage">
+        <div class="img1">
+            <img style="width: 11vw; height: 36.3vh;"  src="{% static 'web/signupIMG/amasar.jpg' %}" alt="">
+            
+        </div>
+        <div class="img2">
+            <img style="width: 11vw; height: 36.3vh;"  src="{% static 'web/signupIMG/mezcla.jpg' %}" alt="">
+        </div>
+        <div class="img3">
+            <img style="width: 11vw;; height: 36.3vh;"  src="{% static 'web/signupIMG/corte.jpg' %}" alt="">
+        </div>
+        <div class="img4">
+            <img style="width: 11vw;; height: 36.3vh;"  src="{% static 'web/signupIMG/sazon.jpg' %}" alt="">
+        </div>
+        <div class="img5">
+            <img style="width: 11vw;; height: 36.3vh;"  src="{% static 'web/signupIMG/tablaR.jpg' %}" alt="">
+        </div>
+        <div class="img6">
+            <img style="width: 15vw; height: 24.3vh;"  src="{% static 'web/signupIMG/cafetera.jpg' %}" alt="">
+        </div>
+    </section>
+    
+    
+    <section class="section_form">
+        <h1 class="title_form" >Sign up here! <i class="fa-solid fa-user-pen fa-sm"></i></h1>
+        <div class="wrapper_form" >
+            <form class="form" method="POST">
+                {% csrf_token %}
+                {{form}}
+                <button type="button" onclick="handlingpasswordinput()" class="form_btn_show">Show password</button>
+                <button class="form_btn" >Create account</button>
+                
+            </form>
+        </div>
+        <p class="p_login">You already have a account? <a href="{% url 'login' %}">Sign in here!</a></p>
+    
+    </section>
+    
+</div>
+
+<script>
+    const id_password1 = document.getElementById("id_password1");
+    const id_password2 = document.getElementById("id_password2");
+
+    function handlingpasswordinput(){
+    if (id_password1.type === "password"){
+        id_password1.type = "text"
+        id_password2.type = "text"
+    }
+    else{
+        id_password1.type = "password"
+        id_password2.type = "password"
+    }
+    }
+   
+
+</script>
+
+
+{% endblock %}
